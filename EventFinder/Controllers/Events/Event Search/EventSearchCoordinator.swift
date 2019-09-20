@@ -26,7 +26,6 @@ class EventSearchCoordinator: Coordinator {
         eventSearchViewController.delegate = self
         
         navigationController = UINavigationController(rootViewController: eventSearchViewController)
-        navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.tintColor = .white
         navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController.navigationBar.barTintColor = .rangerBlue

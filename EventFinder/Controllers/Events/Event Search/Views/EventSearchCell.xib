@@ -76,8 +76,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="afs-H8-Mbk" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="0AW-Pu-WUN"/>
-                <constraint firstAttribute="top" secondItem="afs-H8-Mbk" secondAttribute="top" id="KJv-RH-z6e"/>
+                <constraint firstItem="afs-H8-Mbk" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" priority="999" id="0AW-Pu-WUN"/>
+                <constraint firstAttribute="top" secondItem="afs-H8-Mbk" secondAttribute="top" priority="999" id="KJv-RH-z6e"/>
                 <constraint firstItem="afs-H8-Mbk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="W6w-8L-R7w"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="afs-H8-Mbk" secondAttribute="trailing" id="WAJ-wI-l82"/>
             </constraints>
