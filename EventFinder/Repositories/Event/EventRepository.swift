@@ -12,10 +12,10 @@ typealias EventRepositoryCompletion = (Result<[Event], Error>) -> Void
 
 class EventRepository {
     
-    private let networkManager: NetworkManager
+    var networkDataSource: EventDataSource
+    var localDataSource: EventDataSource
     
-    private let networkDataSource: EventDataSource
-    private let localDataSource: EventDataSource
+    private let networkManager: NetworkManager
     
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager

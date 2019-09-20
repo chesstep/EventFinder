@@ -1,29 +1,23 @@
 //
-//  EventLocalDataSource.swift
-//  EventFinder
+//  EventLocalDataSourceMock.swift
+//  EventFinderTests
 //
-//  Created by Chesley Stephens on 9/19/19.
+//  Created by Chesley Stephens on 9/20/19.
 //  Copyright © 2019 Nibbis. All rights reserved.
 //
 
 import Foundation
+@testable import EventFinder
 
-class EventLocalDataSource: EventDataSource {
+class EventLocalDataSourceMock: EventDataSource {
     
-    var favoriteCache: Cache<Event>
+    let favoriteCache: Cache<Event>
     
-    private let cacheName = "eventsCache"
-    private let favoritesSet = "favoritesSet"
+    let cacheName = "testEventsCache"
+    let favoritesSet = "testFavoritesSet"
     
     init() {
-        favoriteCache = Cache(cacheName: cacheName)
-        
-        #if DEBUG
-        if ProcessInfo.processInfo.arguments.contains("UI-Testing") {
-            favoriteCache = Cache(cacheName: "testEventsCache")
-            favoriteCache.removeCache()
-        }
-        #endif
+        favoriteCache = Cache(cacheName: "testFavoriteCache", useDiskCache: false)
     }
     
     func queryEvents(query: String, completion: EventDataSourceCompletion?) {

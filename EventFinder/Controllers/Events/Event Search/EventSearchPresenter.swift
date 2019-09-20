@@ -54,15 +54,14 @@ class EventSearchPresenter: Presenter {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let events):
-                        self?.view.setEvents(events: events)
                         self?.view.setState(state: events.isEmpty ? EventSearchViewController.State.empty: .events)
+                        self?.view.setEvents(events: events)
                     case .failure(let error):
-                        self?.view.presentAlert(title: NSLocalizedString("Event Error", comment: ""), message: error.localizedDescription)
                         self?.view.setState(state: .empty)
+                        self?.view.presentAlert(title: NSLocalizedString("Event Error", comment: ""), message: error.localizedDescription)
                     }
                 }
             }
         }
-        
     }
 }
