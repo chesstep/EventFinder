@@ -60,6 +60,9 @@ class EventSearchViewController: UIViewController {
     func configureUI() {
         title = NSLocalizedString("Event Finder", comment: "")
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         presenter.attachView(view: self)
         tableView.register(UINib(nibName: String(describing: EventSearchCell.self), bundle: nil), forCellReuseIdentifier: String(describing: EventSearchCell.self))
         
@@ -159,5 +162,25 @@ extension EventSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         presenter.queryEvents(query: searchController.searchBar.text)
+    }
+}
+
+// MARK: - Keyboard Notifications
+
+extension EventSearchViewController {
+    
+    @objc
+    func keyboardDidShow(_ notification:Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
+    }
+    
+    @objc
+    func keyboardWillHide(_ notification:Notification) {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
