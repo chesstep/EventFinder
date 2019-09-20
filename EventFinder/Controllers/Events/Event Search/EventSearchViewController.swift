@@ -60,7 +60,7 @@ class EventSearchViewController: UIViewController {
     func configureUI() {
         title = NSLocalizedString("Event Finder", comment: "")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         presenter.attachView(view: self)
@@ -170,7 +170,7 @@ extension EventSearchViewController: UISearchResultsUpdating {
 extension EventSearchViewController {
     
     @objc
-    func keyboardDidShow(_ notification:Notification) {
+    func keyboardWillShow(_ notification:Notification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
