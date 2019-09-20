@@ -19,11 +19,11 @@ class EventSearchPresenter: Presenter {
     
     private let appConfiguration: AppConfiguration
     private weak var view: EventSearchView!
-    private let eventRepository: EventRepository
+    private var queryTimer: Timer?
+    private var previousQuery: String?
     
     init(appConfiguration: AppConfiguration) {
         self.appConfiguration = appConfiguration
-        eventRepository = EventRepository(appConfiguration: appConfiguration)
     }
     
     func attachView(view: EventSearchView) {
@@ -34,19 +34,35 @@ class EventSearchPresenter: Presenter {
         view = nil
     }
     
-    func loadEvents() {
+    func queryEvents(query: String?) {
+        guard let query = query, !query.isEmpty else {
+            previousQuery = nil
+            queryTimer?.invalidate()
+            view.setEvents(events: [Event]())
+            view.setState(state: .start)
+            return
+        }
+        guard query != previousQuery else {
+            return
+        }
+        previousQuery = query
         view.setState(state: .loading)
-        eventRepository.all { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let events):
-                    self?.view.setEvents(events: events)
-                    self?.view.setState(state: .events)
-                case .failure(let error):
-                    self?.view.presentAlert(title: NSLocalizedString("Event Error", comment: ""), message: error.localizedDescription)
-                    self?.view.setState(state: .empty)
+        
+        queryTimer?.invalidate()
+        queryTimer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: false) { [weak self] _ in
+            self?.appConfiguration.eventRepository.queryEvents(query: query) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let events):
+                        self?.view.setEvents(events: events)
+                        self?.view.setState(state: events.isEmpty ? EventSearchViewController.State.empty: .events)
+                    case .failure(let error):
+                        self?.view.presentAlert(title: NSLocalizedString("Event Error", comment: ""), message: error.localizedDescription)
+                        self?.view.setState(state: .empty)
+                    }
                 }
             }
         }
+        
     }
 }

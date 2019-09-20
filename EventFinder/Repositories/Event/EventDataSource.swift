@@ -12,5 +12,9 @@ typealias EventDataSourceCompletion = (Result<[Event], Error>) -> Void
 
 protocol EventDataSource {
     
-    func allEvents(completion: EventDataSourceCompletion?)
+    func queryEvents(query: String, completion: EventDataSourceCompletion?)
+    
+    func addFavoriteEvent(event: Event)
+    func removeFavoriteEvent(event: Event)
+    func eventIsFavorite(event: Event) -> Bool
 }

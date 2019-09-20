@@ -22,14 +22,18 @@ class EventSearchCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureData(event: Event) {
-        favoriteImageView.isHidden = !event.isFavorite
+    func configureData(event: Event, isFavorite: Bool) {
+        favoriteImageView.isHidden = !isFavorite
         eventImageView.layer.cornerRadius = 10
-        if let url = URL(string: event.imageURL) {
+        if let imageString = event.imageURL, let url = URL(string: imageString) {
             eventImageView.kf.setImage(with: url)
+        } else {
+            eventImageView.image = nil
         }
         eventTitleLabel.text = event.title
         eventLocationLabel.text = "\(event.city), \(event.state)"
-        eventDateLabel.text = DateFormatter.eventFormatter.string(from: event.date)
+        if let date = event.date {
+            eventDateLabel.text = DateFormatter.eventFormatter.string(from: date)
+        }
     }
 }

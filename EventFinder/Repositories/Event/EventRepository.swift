@@ -12,17 +12,20 @@ typealias EventRepositoryCompletion = (Result<[Event], Error>) -> Void
 
 class EventRepository {
     
-    private let appConfiguration: AppConfiguration
-    private let networkDataSource: EventDataSource
+    private let networkManager: NetworkManager
     
-    init(appConfiguration: AppConfiguration) {
-        self.appConfiguration = appConfiguration
+    private let networkDataSource: EventDataSource
+    private let localDataSource: EventDataSource
+    
+    init(networkManager: NetworkManager) {
+        self.networkManager = networkManager
         
-        networkDataSource = EventNetworkDataSource(appConfiguration: appConfiguration)
+        networkDataSource = EventNetworkDataSource(networkManager: networkManager)
+        localDataSource = EventLocalDataSource()
     }
     
-    func all(completion: EventRepositoryCompletion?) {
-        networkDataSource.allEvents { result in
+    func queryEvents(query: String, completion: EventRepositoryCompletion?) {
+        networkDataSource.queryEvents(query: query) { result in
             switch result {
             case .success(let items):
                 completion?(.success(items))
@@ -30,5 +33,17 @@ class EventRepository {
                 completion?(.failure(error))
             }
         }
+    }
+    
+    func addFavorite(event: Event) {
+        localDataSource.addFavoriteEvent(event: event)
+    }
+    
+    func removeFavorite(event: Event) {
+        localDataSource.removeFavoriteEvent(event: event)
+    }
+    
+    func eventIsFavorite(event: Event) -> Bool {
+        return localDataSource.eventIsFavorite(event: event)
     }
 }

@@ -36,6 +36,18 @@
 		FB1951E32333FBFA006C9FEF /* EventDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951E22333FBFA006C9FEF /* EventDetailCoordinator.swift */; };
 		FB1951E52333FC17006C9FEF /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB1951E42333FC17006C9FEF /* EventDetailViewController.xib */; };
 		FB1951E72334109C006C9FEF /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951E62334109C006C9FEF /* EventDetailPresenter.swift */; };
+		FB1951F323345FC4006C9FEF /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951E923345FC4006C9FEF /* ResponseHandler.swift */; };
+		FB1951F423345FC4006C9FEF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951EA23345FC4006C9FEF /* NetworkManager.swift */; };
+		FB1951F523345FC4006C9FEF /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951EB23345FC4006C9FEF /* ParameterEncoding.swift */; };
+		FB1951F623345FC4006C9FEF /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951ED23345FC4006C9FEF /* DataResponse.swift */; };
+		FB1951F723345FC4006C9FEF /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951EE23345FC4006C9FEF /* ErrorResponse.swift */; };
+		FB1951F823345FC4006C9FEF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951EF23345FC4006C9FEF /* NetworkError.swift */; };
+		FB1951FA23345FC4006C9FEF /* AuthenticatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951F123345FC4006C9FEF /* AuthenticatorProtocol.swift */; };
+		FB1951FB23345FC4006C9FEF /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951F223345FC4006C9FEF /* RequestConfiguration.swift */; };
+		FB1952002334774F006C9FEF /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951FD2334774E006C9FEF /* MemoryCache.swift */; };
+		FB1952012334774F006C9FEF /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951FE2334774E006C9FEF /* DiskCache.swift */; };
+		FB1952022334774F006C9FEF /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951FF2334774E006C9FEF /* Cache.swift */; };
+		FB19520423347793006C9FEF /* EventLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB19520323347793006C9FEF /* EventLocalDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +109,18 @@
 		FB1951E22333FBFA006C9FEF /* EventDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailCoordinator.swift; sourceTree = "<group>"; };
 		FB1951E42333FC17006C9FEF /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		FB1951E62334109C006C9FEF /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
+		FB1951E923345FC4006C9FEF /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		FB1951EA23345FC4006C9FEF /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FB1951EB23345FC4006C9FEF /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		FB1951ED23345FC4006C9FEF /* DataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		FB1951EE23345FC4006C9FEF /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		FB1951EF23345FC4006C9FEF /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		FB1951F123345FC4006C9FEF /* AuthenticatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorProtocol.swift; sourceTree = "<group>"; };
+		FB1951F223345FC4006C9FEF /* RequestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
+		FB1951FD2334774E006C9FEF /* MemoryCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
+		FB1951FE2334774E006C9FEF /* DiskCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
+		FB1951FF2334774E006C9FEF /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		FB19520323347793006C9FEF /* EventLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +199,10 @@
 		FB19517B2333D585006C9FEF /* EventFinder */ = {
 			isa = PBXGroup;
 			children = (
-				FB1951DB2333E374006C9FEF /* Extensions */,
+				FB1951FC2334774E006C9FEF /* Cache */,
 				FB1951B22333D63C006C9FEF /* Controllers */,
+				FB1951DB2333E374006C9FEF /* Extensions */,
+				FB1951E823345FC4006C9FEF /* Network */,
 				FB1951B52333D6A6006C9FEF /* Protocols */,
 				FB1951CA2333D8AB006C9FEF /* Repositories */,
 				FB1951AA2333D5EC006C9FEF /* Resources */,
@@ -274,6 +300,7 @@
 			children = (
 				FB1951CE2333D8EA006C9FEF /* Models */,
 				FB1951D12333D95A006C9FEF /* EventDataSource.swift */,
+				FB19520323347793006C9FEF /* EventLocalDataSource.swift */,
 				FB1951D32333D993006C9FEF /* EventNetworkDataSource.swift */,
 				FB1951D52333DA7D006C9FEF /* EventRepository.swift */,
 			);
@@ -316,6 +343,39 @@
 				FB1951DC2333E387006C9FEF /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FB1951E823345FC4006C9FEF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FB1951EC23345FC4006C9FEF /* Models */,
+				FB1951F123345FC4006C9FEF /* AuthenticatorProtocol.swift */,
+				FB1951EA23345FC4006C9FEF /* NetworkManager.swift */,
+				FB1951EB23345FC4006C9FEF /* ParameterEncoding.swift */,
+				FB1951F223345FC4006C9FEF /* RequestConfiguration.swift */,
+				FB1951E923345FC4006C9FEF /* ResponseHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FB1951EC23345FC4006C9FEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB1951ED23345FC4006C9FEF /* DataResponse.swift */,
+				FB1951EE23345FC4006C9FEF /* ErrorResponse.swift */,
+				FB1951EF23345FC4006C9FEF /* NetworkError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB1951FC2334774E006C9FEF /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				FB1951FF2334774E006C9FEF /* Cache.swift */,
+				FB1951FE2334774E006C9FEF /* DiskCache.swift */,
+				FB1951FD2334774E006C9FEF /* MemoryCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,22 +586,34 @@
 			files = (
 				FB1951C52333D7B7006C9FEF /* EventSearchCell.swift in Sources */,
 				FB1951C22333D75D006C9FEF /* EventSearchCoordinator.swift in Sources */,
+				FB1951FB23345FC4006C9FEF /* RequestConfiguration.swift in Sources */,
 				FB1951DF2333F999006C9FEF /* DateFormatter+Extension.swift in Sources */,
+				FB1951F423345FC4006C9FEF /* NetworkManager.swift in Sources */,
 				FB1951BB2333D6F0006C9FEF /* AppCoordinator.swift in Sources */,
 				FB1951E32333FBFA006C9FEF /* EventDetailCoordinator.swift in Sources */,
 				FB1951C02333D747006C9FEF /* EventSearchViewController.swift in Sources */,
+				FB19520423347793006C9FEF /* EventLocalDataSource.swift in Sources */,
 				FB1951D62333DA7D006C9FEF /* EventRepository.swift in Sources */,
 				FB1951CD2333D8E0006C9FEF /* Event.swift in Sources */,
 				FB1951BD2333D700006C9FEF /* AppConfiguration.swift in Sources */,
+				FB1952012334774F006C9FEF /* DiskCache.swift in Sources */,
 				FB1951D42333D993006C9FEF /* EventNetworkDataSource.swift in Sources */,
 				FB1951B72333D6B9006C9FEF /* Presenter.swift in Sources */,
 				FB1951E72334109C006C9FEF /* EventDetailPresenter.swift in Sources */,
 				FB1951DD2333E387006C9FEF /* UIColor+Extension.swift in Sources */,
+				FB1952022334774F006C9FEF /* Cache.swift in Sources */,
+				FB1951F323345FC4006C9FEF /* ResponseHandler.swift in Sources */,
+				FB1951F723345FC4006C9FEF /* ErrorResponse.swift in Sources */,
 				FB1951B42333D676006C9FEF /* AppDelegate.swift in Sources */,
+				FB1951F623345FC4006C9FEF /* DataResponse.swift in Sources */,
+				FB1951F523345FC4006C9FEF /* ParameterEncoding.swift in Sources */,
+				FB1951F823345FC4006C9FEF /* NetworkError.swift in Sources */,
 				FB1951B92333D6C5006C9FEF /* Coordinator.swift in Sources */,
 				FB1951D22333D95A006C9FEF /* EventDataSource.swift in Sources */,
 				FB1951C72333D7D7006C9FEF /* EventSearchPresenter.swift in Sources */,
 				FB1951E12333FBED006C9FEF /* EventDetailViewController.swift in Sources */,
+				FB1952002334774F006C9FEF /* MemoryCache.swift in Sources */,
+				FB1951FA23345FC4006C9FEF /* AuthenticatorProtocol.swift in Sources */,
 				FB1951D02333D8FE006C9FEF /* EventNetworkModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,13 +8,20 @@
 
 import Foundation
 
-struct Event {
+struct Event: Codable & Hashable {
     
     let id: Int
     let title: String
-    let date: Date
+    let date: Date?
     let city: String
     let state: String
-    let imageURL: String
-    let isFavorite: Bool
+    let imageURL: String?
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

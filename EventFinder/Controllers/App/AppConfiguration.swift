@@ -10,6 +10,11 @@ import Foundation
 
 class AppConfiguration {
     
+    var networkManager: NetworkManager
+    var eventRepository: EventRepository
+    
     init() {
+        networkManager = NetworkManager()
+        eventRepository = EventRepository(networkManager: networkManager)
     }
 }

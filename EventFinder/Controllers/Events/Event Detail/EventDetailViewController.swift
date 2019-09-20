@@ -46,11 +46,13 @@ class EventDetailViewController: UIViewController {
         presenter.configureButtonImage(event: event)
         
         eventImageView.layer.cornerRadius = 10
-        if let url = URL(string: event.imageURL) {
+        if let imageString = event.imageURL, let url = URL(string: imageString) {
             eventImageView.kf.setImage(with: url)
         }
         eventLocationLabel.text = "\(event.city), \(event.state)"
-        eventDateLabel.text = DateFormatter.eventFormatter.string(from: event.date)
+        if let date = event.date {
+            eventDateLabel.text = DateFormatter.eventFormatter.string(from: date)
+        }
     }
     
     @objc
@@ -62,11 +64,6 @@ class EventDetailViewController: UIViewController {
 // MARK: - EventDetailView
 
 extension EventDetailViewController: EventDetailView {
-    
-    func setEvent(event: Event) {
-        self.event = event
-        presenter.configureButtonImage(event: event)
-    }
     
     func showEmptyButtonImage() {
         rightBarButton.image = UIImage(named: "star_empty")

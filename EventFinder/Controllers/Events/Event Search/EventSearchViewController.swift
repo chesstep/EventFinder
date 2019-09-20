@@ -53,6 +53,10 @@ class EventSearchViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func configureUI() {
         title = NSLocalizedString("Event Finder", comment: "")
         
@@ -107,7 +111,7 @@ extension EventSearchViewController: UITableViewDataSource {
         var cell = UITableViewCell()
         if let eventSearchCell = tableView.dequeueReusableCell(withIdentifier: String(describing: EventSearchCell.self), for: indexPath) as? EventSearchCell {
             let event = events[indexPath.row]
-            eventSearchCell.configureData(event: event)
+            eventSearchCell.configureData(event: event, isFavorite: appConfiguration.eventRepository.eventIsFavorite(event: event))
             cell = eventSearchCell
         }
         return cell
@@ -154,8 +158,6 @@ extension EventSearchViewController: EventSearchView {
 extension EventSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-        print(searchController.searchBar.text!)
-        presenter.loadEvents()
+        presenter.queryEvents(query: searchController.searchBar.text)
     }
 }

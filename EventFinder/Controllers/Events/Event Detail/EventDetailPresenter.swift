@@ -10,7 +10,6 @@ import Foundation
 
 protocol EventDetailView: class {
     
-    func setEvent(event: Event)
     func showEmptyButtonImage()
     func showFilledButtonImage()
 }
@@ -19,11 +18,9 @@ class EventDetailPresenter: Presenter {
     
     private let appConfiguration: AppConfiguration
     private weak var view: EventDetailView!
-    private let eventRepository: EventRepository
     
     init(appConfiguration: AppConfiguration) {
         self.appConfiguration = appConfiguration
-        eventRepository = EventRepository(appConfiguration: appConfiguration)
     }
     
     func attachView(view: EventDetailView) {
@@ -35,7 +32,7 @@ class EventDetailPresenter: Presenter {
     }
     
     func configureButtonImage(event: Event) {
-        if event.isFavorite {
+        if appConfiguration.eventRepository.eventIsFavorite(event: event) {
             view?.showFilledButtonImage()
         } else {
             view?.showEmptyButtonImage()
@@ -43,7 +40,11 @@ class EventDetailPresenter: Presenter {
     }
     
     func rightBarButtonPressed(event: Event) {
-        let newEvent = Event(id: event.id, title: event.title, date: event.date, city: event.city, state: event.state, imageURL: event.imageURL, isFavorite: !event.isFavorite)
-        view?.setEvent(event: newEvent)
+        if appConfiguration.eventRepository.eventIsFavorite(event: event) {
+            appConfiguration.eventRepository.removeFavorite(event: event)
+        } else {
+            appConfiguration.eventRepository.addFavorite(event: event)
+        }
+        configureButtonImage(event: event)
     }
 }
