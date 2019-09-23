@@ -41,6 +41,8 @@ class EventDetailViewController: UIViewController {
         presenter.attachView(view: self)
         
         title = event.title
+        extendedLayoutIncludesOpaqueBars = true
+        
         rightBarButton = UIBarButtonItem(image: UIImage(named: "star_empty"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(rightBarButtonPressed(sender:)))
         navigationItem.rightBarButtonItems = [rightBarButton]
         presenter.configureButtonImage(event: event)
@@ -49,7 +51,7 @@ class EventDetailViewController: UIViewController {
         if let imageString = event.imageURL, let url = URL(string: imageString) {
             eventImageView.kf.setImage(with: url)
         }
-        eventLocationLabel.text = "\(event.city), \(event.state)"
+        eventLocationLabel.text = event.formattedCityState
         if let date = event.date {
             eventDateLabel.text = DateFormatter.eventFormatter.string(from: date)
         }

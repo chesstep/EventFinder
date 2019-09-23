@@ -59,19 +59,19 @@ class EventSearchViewController: UIViewController {
     }
     
     func configureUI() {
-        title = NSLocalizedString("Event Finder", comment: "")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         presenter.attachView(view: self)
+        
+        title = NSLocalizedString("Event Finder", comment: "")
+        extendedLayoutIncludesOpaqueBars = true
+        
         tableView.register(UINib(nibName: String(describing: EventSearchCell.self), bundle: nil), forCellReuseIdentifier: String(describing: EventSearchCell.self))
+        tableView.keyboardDismissMode = .onDrag
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = NSLocalizedString("Search Events", comment: "")
-        searchController.searchBar.tintColor = .white
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [.foregroundColor: UIColor.white]
+        searchController.searchBar.tintColor = UIColor(named: "searchBarTint")
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [.foregroundColor: UIColor(named: "searchBarText") ?? .white]
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -163,27 +163,5 @@ extension EventSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         presenter.queryEvents(query: searchController.searchBar.text)
-    }
-}
-
-// MARK: - Keyboard Notifications
-
-extension EventSearchViewController {
-    
-    @objc
-    func keyboardWillShow(_ notification:Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-    }
-    
-    @objc
-    func keyboardWillHide(_ notification:Notification) {
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
     }
 }
