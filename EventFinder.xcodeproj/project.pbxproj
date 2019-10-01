@@ -29,7 +29,6 @@
 		FB1951D42333D993006C9FEF /* EventNetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951D32333D993006C9FEF /* EventNetworkDataSource.swift */; };
 		FB1951D62333DA7D006C9FEF /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951D52333DA7D006C9FEF /* EventRepository.swift */; };
 		FB1951D82333DC44006C9FEF /* EventSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB1951D72333DC44006C9FEF /* EventSearchCell.xib */; };
-		FB1951DD2333E387006C9FEF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951DC2333E387006C9FEF /* UIColor+Extension.swift */; };
 		FB1951DF2333F999006C9FEF /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951DE2333F999006C9FEF /* DateFormatter+Extension.swift */; };
 		FB1951E12333FBED006C9FEF /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951E02333FBED006C9FEF /* EventDetailViewController.swift */; };
 		FB1951E32333FBFA006C9FEF /* EventDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1951E22333FBFA006C9FEF /* EventDetailCoordinator.swift */; };
@@ -61,6 +60,7 @@
 		FB19522C2335375F006C9FEF /* EventRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB19522B2335375F006C9FEF /* EventRepositoryTests.swift */; };
 		FB19522E23353F84006C9FEF /* EventNetworkDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB19522D23353F84006C9FEF /* EventNetworkDataSourceTests.swift */; };
 		FB195230233542E2006C9FEF /* EventLocalDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB19522F233542E2006C9FEF /* EventLocalDataSourceTests.swift */; };
+		FB7C7D212338656E003DC2D5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7C7D202338656E003DC2D5 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +115,6 @@
 		FB1951D32333D993006C9FEF /* EventNetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNetworkDataSource.swift; sourceTree = "<group>"; };
 		FB1951D52333DA7D006C9FEF /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		FB1951D72333DC44006C9FEF /* EventSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventSearchCell.xib; sourceTree = "<group>"; };
-		FB1951DC2333E387006C9FEF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FB1951DE2333F999006C9FEF /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		FB1951E02333FBED006C9FEF /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		FB1951E22333FBFA006C9FEF /* EventDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		FB19522B2335375F006C9FEF /* EventRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryTests.swift; sourceTree = "<group>"; };
 		FB19522D23353F84006C9FEF /* EventNetworkDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNetworkDataSourceTests.swift; sourceTree = "<group>"; };
 		FB19522F233542E2006C9FEF /* EventLocalDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalDataSourceTests.swift; sourceTree = "<group>"; };
+		FB7C7D202338656E003DC2D5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1951AC2333D5EC006C9FEF /* Assets.xcassets */,
+				FB7C7D202338656E003DC2D5 /* Colors.xcassets */,
 				FB1951AD2333D5EC006C9FEF /* Info.plist */,
 				FB1951AB2333D5EC006C9FEF /* LaunchScreen.storyboard */,
 			);
@@ -369,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				FB1951DE2333F999006C9FEF /* DateFormatter+Extension.swift */,
-				FB1951DC2333E387006C9FEF /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -616,6 +616,7 @@
 				FB1951E52333FC17006C9FEF /* EventDetailViewController.xib in Resources */,
 				FB1951D82333DC44006C9FEF /* EventSearchCell.xib in Resources */,
 				FB1951AF2333D5EC006C9FEF /* Assets.xcassets in Resources */,
+				FB7C7D212338656E003DC2D5 /* Colors.xcassets in Resources */,
 				FB1951C92333D7F4006C9FEF /* EventSearchViewController.xib in Resources */,
 				FB1951AE2333D5EC006C9FEF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -727,7 +728,6 @@
 				FB1951D42333D993006C9FEF /* EventNetworkDataSource.swift in Sources */,
 				FB1951B72333D6B9006C9FEF /* Presenter.swift in Sources */,
 				FB1951E72334109C006C9FEF /* EventDetailPresenter.swift in Sources */,
-				FB1951DD2333E387006C9FEF /* UIColor+Extension.swift in Sources */,
 				FB1952022334774F006C9FEF /* Cache.swift in Sources */,
 				FB1951F323345FC4006C9FEF /* ResponseHandler.swift in Sources */,
 				FB1951F723345FC4006C9FEF /* ErrorResponse.swift in Sources */,

@@ -31,7 +31,7 @@ class EventSearchCell: UITableViewCell {
             eventImageView.image = nil
         }
         eventTitleLabel.text = event.title
-        eventLocationLabel.text = "\(event.city), \(event.state)"
+        eventLocationLabel.text = event.formattedCityState
         if let date = event.date {
             eventDateLabel.text = DateFormatter.eventFormatter.string(from: date)
         }

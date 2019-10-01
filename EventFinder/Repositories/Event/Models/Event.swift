@@ -14,8 +14,16 @@ struct Event: Codable & Hashable {
     let title: String
     let date: Date?
     let city: String
-    let state: String
+    let state: String?
     let imageURL: String?
+    
+    var formattedCityState: String {
+        var cityState = "\(city)"
+        if let state = state {
+            cityState += ", \(state)"
+        }
+        return cityState
+    }
     
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
